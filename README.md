@@ -26,6 +26,26 @@ version: 1.0.0
 depend: [BukkitSpring]
 ```
 
+## Maven (snapshots)
+
+```xml
+<repositories>
+  <repository>
+    <id>nexus-snapshots</id>
+    <url>https://www.4399mc.cn/nexus/repository/maven-snapshots/</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>com.cuzz</groupId>
+    <artifactId>BukkitSpring</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+```
+
 ## Quick Start
 
 ```java
