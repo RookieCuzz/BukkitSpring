@@ -1,0 +1,9 @@
+name: ExamplePlugin
+main: com.example.bukkitspringdemo.ExamplePlugin
+version: 1.0.0
+api-version: 1.20
+depend: [BukkitSpring]
+commands:
+  hello:
+    description: Say hello using injected service
+    usage: /hello <name>

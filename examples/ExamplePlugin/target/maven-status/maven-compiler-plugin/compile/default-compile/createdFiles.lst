@@ -1,0 +1,4 @@
+com\example\bukkitspringdemo\GreetingCommand.class
+com\example\bukkitspringdemo\GreetingService.class
+com\example\bukkitspringdemo\ExamplePlugin.class
+com\example\bukkitspringdemo\CommandRegistrar.class

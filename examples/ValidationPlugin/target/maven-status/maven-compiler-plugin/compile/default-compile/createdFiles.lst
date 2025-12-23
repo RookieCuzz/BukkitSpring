@@ -1,0 +1,8 @@
+com\example\bukkitspringvalidate\ValidationCommand.class
+com\example\bukkitspringvalidate\FastStorage.class
+com\example\bukkitspringvalidate\CommandRegistrar.class
+com\example\bukkitspringvalidate\Storage.class
+com\example\bukkitspringvalidate\ValidationPlugin.class
+com\example\bukkitspringvalidate\DefaultStorage.class
+com\example\bukkitspringvalidate\TempObject.class
+com\example\bukkitspringvalidate\ValidationService.class
