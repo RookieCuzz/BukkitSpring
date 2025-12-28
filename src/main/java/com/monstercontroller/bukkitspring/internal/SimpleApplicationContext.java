@@ -15,6 +15,11 @@ import com.monstercontroller.bukkitspring.api.exception.BeanCreationException;
 import com.monstercontroller.bukkitspring.api.exception.BeanDefinitionException;
 import com.monstercontroller.bukkitspring.api.exception.CircularDependencyException;
 import com.monstercontroller.bukkitspring.api.exception.NoSuchBeanException;
+import com.monstercontroller.bukkitspring.api.kafka.KafkaConsumerManager;
+import com.monstercontroller.bukkitspring.api.kafka.KafkaService;
+import com.monstercontroller.bukkitspring.api.redis.RedisService;
+import com.monstercontroller.bukkitspring.BukkitSpring;
+import com.monstercontroller.bukkitspring.kafka.KafkaListenerProcessor;
 import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ClassInfo;
 import io.github.classgraph.ScanResult;
@@ -75,6 +80,27 @@ public final class SimpleApplicationContext implements ApplicationContext {
         bindInstance(PluginManager.class, plugin.getServer().getPluginManager());
         bindInstance(FileConfiguration.class, plugin.getConfig());
         bindInstance(BukkitScheduler.class, plugin.getServer().getScheduler());
+        bindProvider(KafkaService.class, () -> {
+            KafkaService service = BukkitSpring.getKafkaService();
+            if (service == null) {
+                throw new NoSuchBeanException("Kafka service is not initialized.");
+            }
+            return service;
+        });
+        bindProvider(KafkaConsumerManager.class, () -> {
+            KafkaConsumerManager manager = BukkitSpring.getKafkaConsumerManager();
+            if (manager == null) {
+                throw new NoSuchBeanException("Kafka consumer manager is not initialized.");
+            }
+            return manager;
+        });
+        bindProvider(RedisService.class, () -> {
+            RedisService service = BukkitSpring.getRedisService();
+            if (service == null) {
+                throw new NoSuchBeanException("Redis service is not initialized.");
+            }
+            return service;
+        });
     }
 
     @Override
@@ -112,6 +138,22 @@ public final class SimpleApplicationContext implements ApplicationContext {
             }
         }
         refreshed = true;
+        logger.info("[DEBUG] Context refreshed, checking KafkaConsumerManager...");
+        KafkaConsumerManager manager = BukkitSpring.getKafkaConsumerManager();
+        if (manager == null) {
+            logger.warning("[DEBUG] KafkaConsumerManager is null, skipping listener processing");
+        } else {
+            logger.info("[DEBUG] KafkaConsumerManager found, starting listener processing");
+            KafkaListenerProcessor processor = new KafkaListenerProcessor(manager, logger);
+            try {
+                processor.process(this);
+                manager.startAll();
+                logger.info("[DEBUG] KafkaListener processing completed");
+            } catch (Exception ex) {
+                logger.warning("Kafka listener processing failed: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -145,6 +187,10 @@ public final class SimpleApplicationContext implements ApplicationContext {
     @Override
     public <T> T get(Class<T> type, String qualifier) {
         return resolveDependency(type, qualifier, true);
+    }
+
+    public List<Object> getAllBeans() {
+        return new ArrayList<>(singletons.values());
     }
 
     @Override
@@ -551,5 +597,9 @@ public final class SimpleApplicationContext implements ApplicationContext {
 
     public Logger getLogger() {
         return logger;
+    }
+
+    public List<String> getScannedPackages() {
+        return List.copyOf(scannedPackages);
     }
 }
