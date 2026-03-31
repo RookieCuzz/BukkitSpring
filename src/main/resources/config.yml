@@ -1,0 +1,100 @@
+﻿kafka:
+  enabled: true
+  bootstrap-servers: "43.248.184.250:29092"
+  client-id: "bukkitspring"
+  virtual-threads: true
+  properties:
+  producer:
+    # 鍙潬鎬ч厤缃?
+    acks: "all"
+    enable.idempotence: true
+    retries: 3
+    max.in.flight.requests.per.connection: 5
+    # 鎬ц兘閰嶇疆
+    batch.size: 16384
+    linger.ms: 10
+    buffer.memory: 33554432
+    compression.type: "snappy"
+    # 瓒呮椂閰嶇疆
+    max.request.size: 1048576
+    request.timeout.ms: 30000
+    delivery.timeout.ms: 120000
+  consumer:
+    auto.offset.reset: "latest"
+    enable.auto.commit: true
+    auto.commit.interval.ms: 5000
+    max.poll.records: 500
+    session.timeout.ms: 45000
+    heartbeat.interval.ms: 3000
+    max.poll.interval.ms: 300000
+  consumer-manager:
+    shutdown-timeout: 30
+    error-handling: "SKIP"
+    enable-consume-logging: false
+  admin:
+    request.timeout.ms: 30000
+
+rocketmq:
+  enabled: false
+  namesrv-addr: "127.0.0.1:9876"
+  namespace: ""
+  instance-name: "bukkitspring"
+  access-channel: "LOCAL"
+  use-tls: false
+  vip-channel-enabled: false
+  virtual-threads: true
+  producer:
+    group: "bukkitspring-producer"
+    send-timeout-ms: 3000
+    retry-times-when-send-failed: 2
+    retry-times-when-send-async-failed: 2
+  consumer:
+    group: "bukkitspring-consumer"
+    consume-from-where: "CONSUME_FROM_LAST_OFFSET"
+    message-model: "CLUSTERING"
+    consume-thread-min: 20
+    consume-thread-max: 64
+    max-reconsume-times: 16
+    consume-timestamp: ""
+
+time:
+  enabled: false
+  virtual-threads: true
+  zone-id: "Asia/Shanghai"
+  debug-offset-minutes: 0
+  system-time:
+    allow-set: false
+    command-timeout-ms: 5000
+    prefer-timedatectl: true
+
+caffeine:
+  enabled: false
+  virtual-threads: true
+  default-cache-name: "default"
+  default:
+    initial-capacity: 64
+    maximum-size: 10000
+    expire-after-write-ms: 0
+    expire-after-access-ms: 0
+    refresh-after-write-ms: 0
+    weak-keys: false
+    weak-values: false
+    soft-values: false
+    record-stats: false
+  caches: {}
+
+mybatis:
+  enabled: false
+  auto-commit: true
+  jdbc-url: ""
+  username: ""
+  password: ""
+  driver: "com.mysql.cj.jdbc.Driver"
+  log-impl: "STDOUT_LOGGING"
+  pool:
+    max-size: 10
+    min-idle: 5
+    connection-timeout-ms: 30000
+
+
+

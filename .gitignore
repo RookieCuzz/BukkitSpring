@@ -1,0 +1,58 @@
+# Java/Maven/Gradle
+**/target/
+**/build/
+**/.gradle/
+.gradle/
+out/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.idea/
+.vscode/
+.fleet/
+*.iml
+.classpath
+.project
+.settings/
+nbproject/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and crash dumps
+*.log
+hs_err_pid*
+replay_pid*
+
+# Runtime/temp outputs
+run/
+logs/
+output/
+tmp/
+tmp_*/
+tmp-*/
+_analysis/
+.m2-vc/
+all_augment_effects_grouped*
+tmp_*.html
+tmp_search_index*.json
+
+# External dependency folders
+**/node_modules/
+
+# Local playground and non-framework projects
+examples/
+HappyGhastWar/
+tools/
+utils/
+菜单插件开发/

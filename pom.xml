@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cuzz</groupId>
+    <artifactId>bukkitspring-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <bukkit.version>1.20.4-R0.1-SNAPSHOT</bukkit.version>
+        <classgraph.version>4.8.165</classgraph.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <log4j.version>2.20.0</log4j.version>
+        <junit.version>5.10.2</junit.version>
+    </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>https://www.4399mc.cn/nexus/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>https://www.4399mc.cn/nexus/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>spigotmc-snapshots</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>nexus-snapshots</id>
+            <url>https://www.4399mc.cn/nexus/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <modules>
+        <module>bukkitspring-core</module>
+        <module>platform/bukkitspring-platform-bukkit</module>
+        <module>platform/bukkitspring-platform-bc</module>
+        <module>platform/bukkitspring-platform-vc</module>
+        <module>starter/bukkitspring-starter-loki</module>
+        <module>starter/bukkitspring-starter-redis</module>
+        <module>starter/bukkitspring-starter-redisson</module>
+        <module>starter/bukkitspring-starter-kafka</module>
+        <module>starter/bukkitspring-starter-rocketmq</module>
+        <module>starter/bukkitspring-starter-time</module>
+        <module>starter/bukkitspring-starter-caffeine</module>
+        <module>starter/bukkitspring-starter-config</module>
+        <module>starter/bukkitspring-starter-mybatis</module>
+        <module>starter/bukkitspring-starter-prometheus</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.spigotmc</groupId>
+                <artifactId>spigot-api</artifactId>
+                <version>${bukkit.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.classgraph</groupId>
+                <artifactId>classgraph</artifactId>
+                <version>${classgraph.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
