@@ -51,13 +51,7 @@ tmp_search_index*.json
 **/node_modules/
 
 # Local playground and non-framework projects
-examples/*
-!examples/SkillStone/
-examples/SkillStone/*
-!examples/SkillStone/consumable-skill-bridge/
-!examples/SkillStone/consumable-skill-bridge/**
-examples/SkillStone/consumable-skill-bridge/target/
-examples/SkillStone/consumable-skill-bridge/*.jar
+examples/
 HappyGhastWar/
 tools/
 utils/
