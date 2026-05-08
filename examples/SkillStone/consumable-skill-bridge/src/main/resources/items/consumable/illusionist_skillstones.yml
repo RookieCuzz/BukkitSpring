@@ -1,0 +1,129 @@
+﻿schema-version: 2
+
+defaults:
+  trigger: RIGHT_CLICK
+  consume: DEFAULT
+  max-consume: 3
+  cooldown: 6
+  vanilla-eating: false
+  disable-right-click-consume: false
+  sounds:
+    on-consume:
+      cast:
+        sound: ENTITY_ILLUSIONER_CAST_SPELL
+        volume: 1.0
+        pitch: 1.0
+
+consumables:
+  ILLUSIONIST_CARD_THROW_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_card_throw
+      name: "&bIllusionist - Card Throw Stone"
+      lore:
+        - "&8◆ &7Trigger: &fRight Click"
+        - "&8◆ &7Skill: &eCARD_THROW"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    skill:
+      id: CARD_THROW
+    cooldown: 2
+    cooldown-key: illusionist:card_throw
+
+  ILLUSIONIST_PHANTOM_BLINK_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_phantom_blink
+      name: "&dIllusionist - Phantom Blink Stone"
+      lore:
+        - "&8◆ &7Trigger: &fShift + Right Click"
+        - "&8◆ &7Skill: &ePHANTOM_BLINK"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    trigger: SHIFT_RIGHT_CLICK
+    skill:
+      id: PHANTOM_BLINK
+    cooldown: 3
+    cooldown-key: illusionist:phantom_blink
+
+  ILLUSIONIST_QUEEN_TAROT_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_queen_tarot
+      name: "&5Illusionist - Queen Tarot Stone"
+      lore:
+        - "&8◆ &7Trigger: &fRight Click"
+        - "&8◆ &7Skill: &eQUEEN_TAROT"
+        - "&8◆ &7Params: &fduration=2.0"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    skill:
+      id: QUEEN_TAROT
+      parameters:
+        duration: 2.0
+    cooldown: 30
+    cooldown-key: illusionist:queen_tarot
+
+  ILLUSIONIST_MIRAGE_SLOT_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_mirage_slot
+      name: "&3Illusionist - Mirage Slot Stone"
+      lore:
+        - "&8◆ &7Trigger: &fShift + Left Click"
+        - "&8◆ &7Skill: &eMIRAGE_SLOT"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    trigger: SHIFT_LEFT_CLICK
+    skill:
+      id: MIRAGE_SLOT
+    cooldown: 4
+    cooldown-key: illusionist:mirage_slot
+
+  ILLUSIONIST_MIRROR_SHURIKEN_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_mirror_shuriken
+      name: "&fIllusionist - Mirror Shuriken Stone"
+      lore:
+        - "&8◆ &7Trigger: &fLeft Click"
+        - "&8◆ &7Skill: &eMIRROR_SHURIKEN"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    trigger: LEFT_CLICK
+    skill:
+      id: MIRROR_SHURIKEN
+    cooldown: 4
+    cooldown-key: illusionist:mirror_shuriken
+
+  ILLUSIONIST_MIRROR_NEEDLES_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_mirror_needles
+      name: "&aIllusionist - Mirror Needles Stone"
+      lore:
+        - "&8◆ &7Trigger: &fRight Click"
+        - "&8◆ &7Skill: &eMIRROR_NEEDLES"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    skill:
+      id: MIRROR_NEEDLES
+    cooldown: 5
+    cooldown-key: illusionist:mirror_needles
+
+  ILLUSIONIST_MIRROR_DIMENSION_STONE:
+    display:
+      material: COAL
+      craftengine-id: illusionist:icon_mirror_dimension
+      name: "&9Illusionist - Mirror Dimension Stone"
+      lore:
+        - "&8◆ &7Trigger: &fShift + Right Click"
+        - "&8◆ &7Skill: &eMIRROR_DIMENSION"
+        - "&8◆ &7Uses: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7Cooldown: &6{cooldown_seconds}s"
+    trigger: SHIFT_RIGHT_CLICK
+    max-consume: 2
+    skill:
+      id: MIRROR_DIMENSION
+    cooldown: 10
+    cooldown-key: illusionist:mirror_dimension

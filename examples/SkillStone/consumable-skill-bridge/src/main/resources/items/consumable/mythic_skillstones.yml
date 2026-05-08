@@ -1,0 +1,435 @@
+﻿schema-version: 2
+
+defaults:
+  trigger: RIGHT_CLICK
+  consume: DEFAULT
+  max-consume: 3
+  cooldown: 4
+  vanilla-eating: false
+  disable-right-click-consume: false
+  sounds:
+    on-consume:
+      cast:
+        sound: ENTITY_EVOKER_CAST_SPELL
+        volume: 1.0
+        pitch: 1.0
+
+consumables:
+  FIREBOLT_STONE:
+    display:
+      material: BOOK
+      name: "&cFirebolt 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFIREBOLT"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FIREBOLT
+    cooldown: 2
+    cooldown-key: skillstone:firebolt
+
+  FIREBALL_STONE:
+    display:
+      material: FIRE_CHARGE
+      name: "&cFireball 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFIREBALL"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FIREBALL
+    cooldown: 4
+    cooldown-key: skillstone:fireball
+
+  FIREBALL_BURST_STONE:
+    display:
+      material: FIRE_CHARGE
+      name: "&6火球爆裂技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFIREBALL"
+        - "&8◆ &7参数: &cdamage=12, radius=4.5, ignite=6"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FIREBALL
+      parameters:
+        radius: 4.5
+        ignite: 6
+    max-consume: 2
+    cooldown: 7
+    cooldown-key: skillstone:fireball_burst
+
+  ARCANE_HAIL_STONE:
+    display:
+      material: END_ROD
+      name: "&dArcane Hail 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eARCANE_HAIL"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: ARCANE_HAIL
+    cooldown: 3
+    cooldown-key: skillstone:arcane_hail
+
+  ARCANE_RIFT_STONE:
+    display:
+      material: ENCHANTED_BOOK
+      name: "&5Arcane Rift 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eARCANE_RIFT"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: ARCANE_RIFT
+    cooldown: 6
+    cooldown-key: skillstone:arcane_rift
+
+  BLINK_STONE:
+    display:
+      material: ENDER_PEARL
+      name: "&bBlink 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eBLINK"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: BLINK
+    cooldown: 4
+    cooldown-key: skillstone:blink
+
+  BLINK_LONG_RANGE_STONE:
+    display:
+      material: ENDER_PEARL
+      name: "&b远距闪现技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eBLINK"
+        - "&8◆ &7参数: &brange=18"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: BLINK
+      parameters:
+        range: 18
+    cooldown: 6
+    cooldown-key: skillstone:blink_long_range
+
+  BLIZZARD_STONE:
+    display:
+      material: SNOWBALL
+      name: "&bBlizzard 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eBLIZZARD"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: BLIZZARD
+    cooldown: 8
+    cooldown-key: skillstone:blizzard
+
+  BLACK_HOLE_STONE:
+    display:
+      material: BLACK_DYE
+      name: "&8Black Hole 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eBLACK_HOLE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: BLACK_HOLE
+    max-consume: 2
+    cooldown: 10
+    cooldown-key: skillstone:black_hole
+
+  BURNING_HANDS_STONE:
+    display:
+      material: BLAZE_POWDER
+      name: "&6Burning Hands 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eBURNING_HANDS"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: BURNING_HANDS
+    cooldown: 4
+    cooldown-key: skillstone:burning_hands
+
+  CURSED_BEAM_STONE:
+    display:
+      material: ENCHANTED_BOOK
+      name: "&5Cursed Beam 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eCURSED_BEAM"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: CURSED_BEAM
+    cooldown: 6
+    cooldown-key: skillstone:cursed_beam
+
+  DEATH_MARK_STONE:
+    display:
+      material: ENCHANTED_BOOK
+      name: "&4Death Mark 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eDEATH_MARK"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: DEATH_MARK
+    cooldown: 7
+    cooldown-key: skillstone:death_mark
+
+  EARTHQUAKE_STONE:
+    display:
+      material: ENCHANTED_BOOK
+      name: "&6Earthquake 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eEARTHQUAKE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: EARTHQUAKE
+    max-consume: 2
+    cooldown: 10
+    cooldown-key: skillstone:earthquake
+
+  FIRE_METEOR_STONE:
+    display:
+      material: FIRE_CHARGE
+      name: "&6Fire Meteor 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFIRE_METEOR"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FIRE_METEOR
+    max-consume: 2
+    cooldown: 12
+    cooldown-key: skillstone:fire_meteor
+
+  FIRE_STORM_STONE:
+    display:
+      material: BLAZE_POWDER
+      name: "&cFire Storm 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFIRE_STORM"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FIRE_STORM
+    cooldown: 9
+    cooldown-key: skillstone:fire_storm
+
+  FREEZE_STONE:
+    display:
+      material: SNOWBALL
+      name: "&bFreeze 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eFREEZE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: FREEZE
+    cooldown: 5
+    cooldown-key: skillstone:freeze
+
+  ICE_SPIKES_STONE:
+    display:
+      material: SNOWBALL
+      name: "&bIce Spikes 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eICE_SPIKES"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: ICE_SPIKES
+    cooldown: 6
+    cooldown-key: skillstone:ice_spikes
+
+  LIGHTNING_BEAM_STONE:
+    display:
+      material: GHAST_TEAR
+      name: "&eLightning Beam 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eLIGHTNING_BEAM"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: LIGHTNING_BEAM
+    cooldown: 6
+    cooldown-key: skillstone:lightning_beam
+
+  MAGICAL_SHIELD_STONE:
+    display:
+      material: SHIELD
+      name: "&dMagical Shield 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eMAGICAL_SHIELD"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: MAGICAL_SHIELD
+    cooldown: 8
+    cooldown-key: skillstone:magical_shield
+
+  SHOCKWAVE_STONE:
+    display:
+      material: IRON_INGOT
+      name: "&7Shockwave 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eSHOCKWAVE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: SHOCKWAVE
+    cooldown: 5
+    cooldown-key: skillstone:shockwave
+
+  SKY_SMASH_STONE:
+    display:
+      material: FEATHER
+      name: "&fSky Smash 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eSKY_SMASH"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: SKY_SMASH
+    cooldown: 7
+    cooldown-key: skillstone:sky_smash
+
+  STARFALL_STONE:
+    display:
+      material: NETHER_STAR
+      name: "&fStarfall 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eSTARFALL"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: STARFALL
+    max-consume: 2
+    cooldown: 10
+    cooldown-key: skillstone:starfall
+
+  TACTICAL_GRENADE_STONE:
+    display:
+      material: SLIME_BALL
+      name: "&aTactical Grenade 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eTACTICAL_GRENADE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: TACTICAL_GRENADE
+    cooldown: 5
+    cooldown-key: skillstone:tactical_grenade
+
+  TNT_THROW_STONE:
+    display:
+      material: TNT
+      name: "&cTNT Throw 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eTNT_THROW"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: TNT_THROW
+    cooldown: 5
+    cooldown-key: skillstone:tnt_throw
+
+  VOID_ZAPPER_STONE:
+    display:
+      material: ENDER_EYE
+      name: "&5Void Zapper 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eVOID_ZAPPER"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: VOID_ZAPPER
+    cooldown: 7
+    cooldown-key: skillstone:void_zapper
+
+  WARP_STONE:
+    display:
+      material: ENDER_PEARL
+      name: "&dWarp 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eWARP"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: WARP
+    cooldown: 5
+    cooldown-key: skillstone:warp
+
+  SMITE_STONE:
+    display:
+      material: IRON_SWORD
+      name: "&eSmite 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eSMITE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: SMITE
+    cooldown: 4
+    cooldown-key: skillstone:smite
+
+  SHULKER_MISSILE_STONE:
+    display:
+      material: SHULKER_SHELL
+      name: "&dShulker Missile 技能石"
+      lore:
+        - "&8◆ &7触发: &f右键 &8| &7技能: &eSHULKER_MISSILE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    skill:
+      id: SHULKER_MISSILE
+    cooldown: 6
+    cooldown-key: skillstone:shulker_missile
+
+  FIREBOLT_LEFT_STONE:
+    display:
+      material: BOOK
+      name: "&cFirebolt 左键技能石"
+      lore:
+        - "&8◆ &7触发: &f左键 &8| &7技能: &eFIREBOLT"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    trigger: LEFT_CLICK
+    skill:
+      id: FIREBOLT
+    cooldown: 2
+    cooldown-key: skillstone:firebolt_left
+
+  BLINK_SHIFT_RIGHT_STONE:
+    display:
+      material: ENDER_PEARL
+      name: "&bBlink 潜行右键技能石"
+      lore:
+        - "&8◆ &7触发: &f潜行+右键 &8| &7技能: &eBLINK"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    trigger: SHIFT_RIGHT_CLICK
+    skill:
+      id: BLINK
+    cooldown: 4
+    cooldown-key: skillstone:blink_shift_right
+
+  SHOCKWAVE_SHIFT_LEFT_STONE:
+    display:
+      material: IRON_INGOT
+      name: "&7Shockwave 潜行左键技能石"
+      lore:
+        - "&8◆ &7触发: &f潜行+左键 &8| &7技能: &eSHOCKWAVE"
+        - "&8◆ &7次数: &b{uses_left}&7/&b{max_consume}"
+        - "&8◆ &7冷却: &6{cooldown_seconds}s"
+    trigger: SHIFT_LEFT_CLICK
+    skill:
+      id: SHOCKWAVE
+    cooldown: 5
+    cooldown-key: skillstone:shockwave_shift_left
+

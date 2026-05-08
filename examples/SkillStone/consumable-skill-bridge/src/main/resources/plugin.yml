@@ -1,0 +1,20 @@
+name: ConsumableSkillBridge
+main: top.skillstone.consumableskillbridge.ConsumableSkillBridgePlugin
+version: 1.0.0-SNAPSHOT
+api-version: "1.20"
+depend:
+  - MythicLib
+softdepend:
+  - CraftEngine
+  - MMOCore
+
+commands:
+  csbridge:
+    description: Consumable bridge admin commands
+    usage: /<command> reload|list|give|doctor|inspect
+    permission: consumableskillbridge.admin
+
+permissions:
+  consumableskillbridge.admin:
+    description: Allows reloading ConsumableSkillBridge
+    default: op
